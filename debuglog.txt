@@ -1,0 +1,15 @@
+metal1 drawing 1 0 ./data/input4.txt
+metal2 drawing 2 0 ./data/input4.txt
+metal2 drawling 4 0 ./data/input2.txt
+metal3 drawing 3 0 ./data/input4.txt
+metal3 fill 5 2 ./data/input2.txt
+metal4 drawing 4 0 ./data/input4.txt
+metal5 drawing 5 0 ./data/input4.txt
+metal6 drawing 6 0 ./data/input4.txt
+metal7 drawing 7 0 ./data/input4.txt
+metal8 drawing 8 0 ./data/input4.txt
+poly drawing 40 0 ./data/input1.txt
+polygon drawing 6 0 ./data/input3.txt
+via1 drawing 40 0 ./data/input5.txt
+via2 drawing 41 0 ./data/input5.txt
+via3 drawing 42 0 ./data/input5.txt

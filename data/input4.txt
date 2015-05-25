@@ -1,0 +1,9 @@
+metal1 drawing 1 0 
+metal2 drawing 2 0
+metal3 drawing 3 0
+metal4 drawing 4 0
+metal5 drawing 5 0
+metal6 drawing 6 0
+metal7 drawing 7 0
+metal8 drawing 8 0
+

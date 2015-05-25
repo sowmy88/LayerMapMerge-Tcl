@@ -1,0 +1,3 @@
+metal1 drawing 1 0
+metal2 drawling 4 0
+metal3 fill 5 2
