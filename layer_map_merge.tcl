@@ -25,18 +25,17 @@ proc _lineToList { line_data } {
 	}
 	#remove redundant white spaces
 	regsub -all { +} $line_data { } line_data     
-    set data_list [split $line_data " "]
+	set data_list [split $line_data " "]
 	return $data_list
 }
 
 proc _writeOutput { mapping_array_name debug_array_name debugflag } {
 	upvar $mapping_array_name mapping_array
 	upvar $debug_array_name debug_array
-	
-    set outfile [open "output.txt" w]
+	set outfile [open "output.txt" w]
 	puts "Output file : [pwd]\/output.txt"
 	if { $debugflag == 1 } { 
-    	set debugfile [open "debuglog.txt" w]
+		set debugfile [open "debuglog.txt" w]
 		puts "Debugfile : [pwd]\/debuglog.txt"
 	}
 	#iterate and print in alphabetical order of keys into new file
@@ -44,12 +43,12 @@ proc _writeOutput { mapping_array_name debug_array_name debugflag } {
 		#lpp refers to layer purpose pair
 		puts $outfile "$lpp $mapping_array($lpp)"
 		if { $debugflag == 1 } {
-	       puts $debugfile "$lpp $debug_array($lpp)"
+			puts $debugfile "$lpp $debug_array($lpp)"
 		}
-    }
+	}
 	close $outfile
 	if {$debugflag == 1} {
-       close $debugfile
+		close $debugfile
 	}
 }
 
@@ -67,20 +66,20 @@ proc _writeOutput { mapping_array_name debug_array_name debugflag } {
 	array set mapping_array {} 
 	array set debug_array {}
 	foreach inputfile $file_list { 
-		set fh [open $inputfile r];
-		while { [gets $fh line_data] >= 0 } { 
-	       set data_list [_lineToList $line_data]
-		   if { [llength $data_list] == 0} {
+		set filehandle [open $inputfile r];
+		while { [gets $filehandle line_data] >= 0 } { 
+		set data_list [_lineToList $line_data]
+			if { [llength $data_list] == 0} {
 				continue
-		   }
-		   set oa_layer_purpose [join "[lindex $data_list 0] [lindex $data_list 1]"] 
-		   set gds_num [join "[lindex $data_list 2] [lindex $data_list 3]"] 
-		   set mapping_array($oa_layer_purpose) "$gds_num";
-		   if { $debugflag == 1 } {
+			}
+			set oa_layer_purpose [join "[lindex $data_list 0] [lindex $data_list 1]"] 
+			set gds_num [join "[lindex $data_list 2] [lindex $data_list 3]"] 
+			set mapping_array($oa_layer_purpose) "$gds_num";
+			if { $debugflag == 1 } {
 		       set debug_array($oa_layer_purpose) "$gds_num $inputfile"
 			}
 		}
-		close $fh
+		close $filehandle
 	}
 	_writeOutput mapping_array debug_array $debugflag 
 	array unset mapping_array
